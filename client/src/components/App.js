@@ -19,18 +19,16 @@ class App extends Component{
 
    render(){
     return(
+        <div className="container">
         <BrowserRouter>
-            <div>
+           <div>
            <Header/>
-           <main className="main">
-           <div  className="container white-box">
            <Route path="/" component={Landing} exact={true}></Route>
            <Route path="/surveys" component={Dashboard} exact></Route>
            <Route path="/surveys/new" component={SurveyNew}></Route>
            </div>
-           </main>
-           </div> 
         </BrowserRouter>
+        </div>
     );
    }
 };

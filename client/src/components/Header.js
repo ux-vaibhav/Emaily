@@ -9,29 +9,37 @@ class Header extends Component{
             case null:
             return;
             case false:
-            return <li><a href="/auth/google">Login with Google</a></li>
+            return <a href="/auth/google" className="link">Login with Google</a>
             default: 
             return [
-             <li key="1"><Payments/></li>,
-            <li key="2" style={{margin:'0 10px'}}> Credits: {this.props.auth.credits}</li>,
-            <li key="3"><a href="/api/logout">Logout</a></li>]
+                <span className="link"> <Payments/> {this.props.auth.credits} </span>,
+            ,
+            <a href="/api/logout" className="link">Logout</a>]
         }
     }
     
     render(){
         return(
-            <nav>
-                <div className="nav-wrapper">
-                <Link to={this.props.auth ? '/surveys':'/'}
+            <div>
+            <nav className="navbar navbar-static-top">
+			<div className="navbar-header">
+				<div id="menu-icon" className="pull-right menu-icon">
+					<span></span><span></span><span></span>
+				</div>
+				<div className="tagline col-xs-4 hidden-sm"> <Link to={this.props.auth ? '/surveys':'/'}
                  className="brand-logo"> 
-                 &nbsp; Emaily
-                 </Link>
-
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    {this.renderContent()}
-                  </ul>
+                 Emaily
+                 </Link></div>
+				<div className="user-info pull-right">
+                <span> vaibhav </span>
                 </div>
-             </nav>
+			</div>
+		</nav>
+        <div className="sidebar">
+        {this.renderContent()}
+    </div>
+    </div> 
+
         );
     }
 }
